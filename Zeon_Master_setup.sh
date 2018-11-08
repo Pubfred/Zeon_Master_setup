@@ -59,15 +59,15 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get update -y
 
 # Determine primary public IP address
 dpkg -s dnsutils 2>/dev/null >/dev/null || sudo apt-get -y install dnsutils
-publicip=$(dig +short myip.opendns.com @resolver1.opendns.com)
+public_ip=$(dig +short myip.opendns.com @resolver1.opendns.com)
 
-if [ -n "$publicip" ]; then
-    echo -e "${YELLOW}IP Address detected:" $publicip ${NC}
+if [ -n "$public_ip" ]; then
+    echo -e "${YELLOW}IP Address detected:" $public_ip ${NC}
 else
     echo -e "${RED}ERROR:${YELLOW} Public IP Address was not detected!${NC} \a"
     clear_stdin
-    read -e -p "Enter VPS Public IP Address: " publicip
-    if [ -z "$publicip" ]; then
+    read -e -p "Enter VPS Public IP Address: " public_ip
+    if [ -z "$public_ip" ]; then
         echo -e "${RED}ERROR:${YELLOW} Public IP Address must be provided. Try again...${NC} \a"
         exit 1
     fi
@@ -187,7 +187,7 @@ listen=1
 server=1
 daemon=1
 maxconnections=64
-externalip=$publicip
+externalip=$public_ip
 masternode=1
 masternodeprivkey=$genkey
 addnode=18.224.69.185
@@ -212,14 +212,14 @@ echo -e "=======================================================================
 ${YELLOW}Masternode setup is complete!${NC}
 ========================================================================
 
-Masternode was installed with VPS IP Address: ${YELLOW}$publicip${NC}
+Masternode was installed with VPS IP Address: ${YELLOW}$public_ip${NC}
 
 Masternode Private Key: ${YELLOW}$genkey${NC}
 
 Now you can add the following string to the masternode.conf file
 for your Hot Wallet (the wallet with your Zeon collateral funds):
 ======================================================================== \a"
-echo -e "${YELLOW}mn1 $publicip:$PORT $genkey TxId TxIdx${NC}"
+echo -e "${YELLOW}mn1 $public_ip:$PORT $genkey TxId TxIdx${NC}"
 echo -e "========================================================================
 
 Use your mouse to copy the whole string above into the clipboard by
