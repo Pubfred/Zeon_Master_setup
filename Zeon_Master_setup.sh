@@ -127,10 +127,10 @@ fi
 
 #Installing Daemon
 cd ~
-#sudo rm zeon_ubuntu16_1.0.0_linux.gz
+#sudo rm zeon_ubuntu_16.04-daemon-qt.tar.gz
 #wget https://github.com/Pubfred/Zeon_hex/releases/                                            pretty sure this is not necassary, will put the writing out here just incase
-#sudo tar -xzvf zeon_ubuntu16_1.0.0_linux.gz --strip-components 1 --directory /usr/bin
-#sudo rm zeon_ubuntu16_1.0.0_linux.gz
+#sudo tar -xvf zeon_ubuntu_16.04-daemon-qt.tar.gz --strip-components 1 --directory /usr/bin
+#sudo rm zeon_ubuntu_16.04-daemon-qt.tar.gz
 
 stop_daemon
 
