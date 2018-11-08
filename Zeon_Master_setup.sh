@@ -55,7 +55,10 @@ genkey=$1
 clear
 echo -e "${YELLOW}Zeon Masternode Setup Script${NC}"
 echo -e "${GREEN}Updating system and installing required packages...${NC}"
-sudo DEBIAN_FRONTEND=noninteractive apt-get update -y
+sudo apt-get update -y
+
+# DEBIAN_FRONTEND=noninteractive
+
 
 # Determine primary public IP address
 dpkg -s dnsutils 2>/dev/null >/dev/null || sudo apt-get -y install dnsutils
