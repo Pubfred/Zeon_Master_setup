@@ -112,7 +112,7 @@ sudo  echo "export PATH=$PATH:/sbin" >> ~/.profile
 . ~/.profile
 
 
-if  [[ $(swapon -s | wc -l) -gt 1 ]] ; then
+if  [[ $(sudo /sbin/swapon -s | wc -l) -gt 1 ]] ; then
     echo -e "${GREEN}Skipping disk swap configuration...${NC} \n"
 else
     echo -e "${YELLOW}Creating 1GB disk swap file. \nThis may take a few minutes!${NC} \a"
