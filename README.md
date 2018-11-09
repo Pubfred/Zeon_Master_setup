@@ -2,7 +2,9 @@
 Script to automate Zeon Masternode install on a VPS with Ubuntu 16.04 or 18.04  with IPv4
 
 git clone https://github.com/Pubfred/Zeon_Master_setup.git
+
 cd Zeon_Master_setup
+
 bash Zeon_Master_setup.sh  [Masternode_Private_Key]
 
 
