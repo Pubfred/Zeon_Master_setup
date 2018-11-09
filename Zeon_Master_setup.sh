@@ -161,7 +161,7 @@ echo -e "${YELLOW}Creating zeon.conf...${NC}"
 
 # If genkey was not supplied in command line, we will generate private key on the fly
 if [ -z $genkey ]; then
- sudo bash -c 'cat <<EOF > ~/.zeon/zeon.conf'
+sudo tee <<EOF  ~/.zeon/zeon.conf  >/dev/null
 rpcuser=zeonrpc
 rpcpassword=$rpcpassword
 EOF
