@@ -6,7 +6,7 @@
 # nodemon 2.0 - Zeon Masternode Monitoring
 
 #Processing command line params
-if [ -z $1 ]; then dly=1; else dly=$1; fi   # Default refresh time is 1 sec
+if [ -z $1 ]; then dly=5; else dly=$1; fi   # Default refresh time is 5 sec
 
 datadir="/$USER/.zeon$2"   # Default datadir is /root/.zeon
 
