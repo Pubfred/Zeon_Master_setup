@@ -113,8 +113,8 @@ if  [[ $(swapon -s | wc -l) -gt 1 ]] ; then
     echo -e "${GREEN}Skipping disk swap configuration...${NC} \n"
 else
     echo -e "${YELLOW}Creating 1GB disk swap file. \nThis may take a few minutes!${NC} \a"
-    sudo  echo "export PATH=$PATH:/sbin" >> $PWD/.profile
-    . $PWD/.profile
+    sudo  echo "export PATH=$PATH:/sbin" >> ~/.profile
+    . ~/.profile
     sudo fallocate -l 1G /swapfile
     sudo chmod 600 /swapfile
     sudo mkswap /swapfile
