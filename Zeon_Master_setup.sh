@@ -146,7 +146,13 @@ cd ~
 stop_daemon
 
 # Deploy binaries to /usr/bin
-sudo cp ~/Zeon_Master_setup/zeon_daemon/zeon* /usr/bin/                                     #path to daemon etc
+if [[ `lsb_release -rs` == "16.04" ]] 
+then
+sudo cp ~/Zeon_Master_setup/zeon_daemon_16/zeon* /usr/bin/  
+elif  [[ `lsb_release -rs` == "18.04" ]] 
+then
+sudo cp ~/Zeon_Master_setup/zeon_daemon_18/zeon* /usr/bin/  
+fi
 sudo chmod 755 -R ~/Zeon_Master_setup
 sudo chmod 755 /usr/bin/zeon*
 
