@@ -114,7 +114,7 @@ if  [[ $(swapon -s | wc -l) -gt 1 ]] ; then
 else
     echo -e "${YELLOW}Creating 1GB disk swap file. \nThis may take a few minutes!${NC} \a"
     sudo  echo "export PATH=$PATH:/sbin" >> ~/.profile
-    sudo source ~/.profile
+    source ~/.profile
     sudo fallocate -l 1G /swapfile
     sudo chmod 600 /swapfile
     sudo mkswap /swapfile
