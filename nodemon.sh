@@ -8,7 +8,7 @@
 #Processing command line params
 if [ -z $1 ]; then dly=5; else dly=$1; fi   # Default refresh time is 5 sec
 
-datadir="/$PWD/.zeon$2"   # Default datadir is /root/.zeon
+datadir="$PWD/.zeon$2"   # Default datadir is /root/.zeon
 
 # Install jq if it's not present
 dpkg -s jq 2>/dev/null >/dev/null || sudo apt-get -y install jq
