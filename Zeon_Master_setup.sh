@@ -169,12 +169,12 @@ EOF
     sudo chmod 755 -R ~/.zeon/zeon.conf
 
     #Starting daemon first time just to generate masternode private key
-    zeond -daemon
+    sudo zeond -daemon
     delay 30
 
     #Generate masternode private key
     echo -e "${YELLOW}Generating masternode private key...${NC}"
-    genkey=$(zeon-cli masternode genkey)
+    genkey=$(sudo zeon-cli masternode genkey)
     if [ -z "$genkey" ]; then
         echo -e "${RED}ERROR:${YELLOW}Can not generate masternode private key.$ \a"
         echo -e "${RED}ERROR:${YELLOW}Reboot VPS and try again or supply existing genkey as a parameter."
@@ -187,7 +187,7 @@ EOF
 fi
 
 # Create zeon.conf
-cat <<EOF > ~/.zeon/zeon.conf
+sudo tee <<EOF  ~/.zeon/zeon.conf  >/dev/null
 rpcuser=zeonrpc
 rpcpassword=$rpcpassword
 rpcallowip=127.0.0.1
@@ -205,7 +205,7 @@ addnode=45.77.137.85
 EOF
 
 #Finally, starting Zeon daemon with new zeon.conf
-zeond
+sudo zeond
 delay 5
 
 #Setting auto star cron job for zeond
@@ -216,7 +216,7 @@ if ! grep -q "$cronjob" tempcron; then
     echo $cronjob >> tempcron
     crontab tempcron
 fi
-rm tempcron
+sudo rm tempcron
 
 echo -e "========================================================================
 ${YELLOW}Masternode setup is complete!${NC}
