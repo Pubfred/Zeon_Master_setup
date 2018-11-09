@@ -139,8 +139,8 @@ cd ~
 stop_daemon
 
 # Deploy binaries to /usr/bin
-sudo cp Zeon_Masternode_Setup/zeon_daemon/zeon* /usr/bin/                                     #path to daemon etc
-sudo chmod 755 -R ~/Zeon_Masternode_Setup
+sudo cp ~/Zeon_Master_setup/zeon_daemon/zeon* /usr/bin/                                     #path to daemon etc
+sudo chmod 755 -R ~/Zeon_Master_setup
 sudo chmod 755 /usr/bin/zeon*
 
 # Deploy masternode monitoring script
