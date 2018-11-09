@@ -1,6 +1,6 @@
 #!/bin/bash
-# Zeon Masternode Setup Script V1.3 for Ubuntu 16.04 LTS
-# (c) 2018 by Pubfred for Zeon 
+# Zeon Masternode Setup Script V1.3 for Ubuntu 16.04 and 18.04 LTS
+# (c) 2018 by Pubfred zeonmymail(at)gmail.com  for Zeon 
 #
 # Script will attempt to autodetect primary public IP address
 # and generate masternode private key unless specified in command line
@@ -55,10 +55,7 @@ genkey=$1
 clear
 echo -e "${YELLOW}Zeon Masternode Setup Script${NC}"
 echo -e "${GREEN}Updating system and installing required packages...${NC}"
-#sudo DEBIAN_FRONTEND=noninteractive apt-get -yq  update
- sudo apt-get update -y
-# sudo apt-get update -y
-# DEBIAN_FRONTEND=noninteractive
+sudo apt-get update -y
 
 
 # Determine primary public IP address
@@ -110,13 +107,12 @@ echo -e "${NC}"
 #Generating Random Password for zeond JSON RPC
 rpcpassword=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 
-#Create 2GB swap file
-#if grep -q "SwapTotal" /proc/meminfo; then
+#Create 1GB swap file
 
 if  [[ $(swapon -s | wc -l) -gt 1 ]] ; then
     echo -e "${GREEN}Skipping disk swap configuration...${NC} \n"
 else
-    echo -e "${YELLOW}Creating 2GB disk swap file. \nThis may take a few minutes!${NC} \a"
+    echo -e "${YELLOW}Creating 1GB disk swap file. \nThis may take a few minutes!${NC} \a"
     
     sudo fallocate -l 1G /swapfile
     sudo chmod 600 /swapfile
@@ -138,12 +134,8 @@ fi
 
 #Installing Daemon
 cd ~
-#sudo rm zeon_ubuntu_16.04-daemon-qt.tar.gz
-#wget https://github.com/Pubfred/Zeon_hex/releases/                                            pretty sure this is not necassary, will put the writing out here just incase
-#sudo tar -xvf zeon_ubuntu_16.04-daemon-qt.tar.gz --strip-components 1 --directory /usr/bin
-#sudo rm zeon_ubuntu_16.04-daemon-qt.tar.gz
-
 stop_daemon
+
 
 # Deploy binaries to /usr/bin
 if [[ `lsb_release -rs` == "16.04" ]] 
@@ -199,7 +191,7 @@ cat <<EOF > ~/.zeon/zeon.conf
 rpcuser=zeonrpc
 rpcpassword=$rpcpassword
 rpcallowip=127.0.0.1
-# onlynet=ipv4
+onlynet=ipv4
 listen=1
 server=1
 daemon=1
@@ -337,6 +329,6 @@ ZYFbfTSABh7hq2guBzSpkmiJGABX4NhLp9
 
 "
 # Run nodemon.sh
-nodemon.sh
+# nodemon.sh
 
 # EOF
