@@ -113,7 +113,7 @@ rpcpassword=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 #Create 2GB swap file
 #if grep -q "SwapTotal" /proc/meminfo; then
 
-if totalm=$(free -m | awk '/^Swap:/{print $2}') > 0 ; then
+if  [[ $(swapon -s | wc -l) -gt 1 ]] then
     echo -e "${GREEN}Skipping disk swap configuration...${NC} \n"
 else
     echo -e "${YELLOW}Creating 2GB disk swap file. \nThis may take a few minutes!${NC} \a"
