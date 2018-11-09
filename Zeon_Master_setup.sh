@@ -117,13 +117,18 @@ if  [[ $(swapon -s | wc -l) -gt 1 ]] ; then
     echo -e "${GREEN}Skipping disk swap configuration...${NC} \n"
 else
     echo -e "${YELLOW}Creating 2GB disk swap file. \nThis may take a few minutes!${NC} \a"
-    touch /var/swap.img
-    chmod 600 swap.img
-    dd if=/dev/zero of=/var/swap.img bs=1024k count=2000
-    mkswap /var/swap.img 2> /dev/null
-    swapon /var/swap.img 2> /dev/null
+    
+    sudo fallocate -l 1G /swapfile
+    sudo chmod 600 /swapfile
+    sudo mkswap /swapfile
+    sudo swapon /swapfile
+     
+    
     if [ $? -eq 0 ]; then
-        echo '/var/swap.img none swap sw 0 0' >> /etc/fstab
+        sudo cp /etc/fstab /etc/fstab.bak
+        echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+        sudo sysctl vm.vfs_cache_pressure=50
+        sudo sysctl vm.swappiness=10
         echo -e "${GREEN}Swap was created successfully!${NC} \n"
     else
         echo -e "${YELLOW}Operation not permitted! Optional swap was not created.${NC} \a"
