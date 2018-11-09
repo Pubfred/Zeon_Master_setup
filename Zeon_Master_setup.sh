@@ -186,7 +186,7 @@ cat <<EOF > ~/.zeon/zeon.conf
 rpcuser=zeonrpc
 rpcpassword=$rpcpassword
 rpcallowip=127.0.0.1
-onlynet=ipv4
+# onlynet=ipv4
 listen=1
 server=1
 daemon=1
