@@ -6,13 +6,13 @@
 # and generate masternode private key unless specified in command line
 #
 # Usage:
-# bash zeon_setup.sh [Masternode_Private_Key]
+# bash Zeon_Masternode_setup.sh [Masternode_Private_Key]
 #
 # Example 1: Existing genkey created earlier is supplied
-# bash zeon_setup.sh 27dSmwq9CabKjo2L3UD1HvgBP3ygbn8HdNmFiGFoVbN1STcsypy
+# bash Zeon_Masternode_setup.sh 8qGKimjuDqF7aNAsMM8MVVKyhZuUPsuRSwh8fGGTneHpJaDdqoq
 #
 # Example 2: Script will generate a new genkey automatically
-# bash zeon_setup.sh
+# bash Zeon_Masternode_setup.sh
 #
 
 #Color codes
@@ -55,8 +55,8 @@ genkey=$1
 clear
 echo -e "${YELLOW}Zeon Masternode Setup Script${NC}"
 echo -e "${GREEN}Updating system and installing required packages...${NC}"
-# sudo DEBIAN_FRONTEND=noninteractive apt-get -yq  update
-sudo apt-get update -y
+sudo DEBIAN_FRONTEND=noninteractive apt-get -yq  update
+# sudo apt-get update -y
 # sudo apt-get update -y
 # DEBIAN_FRONTEND=noninteractive
 
