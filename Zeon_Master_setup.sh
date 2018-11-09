@@ -144,7 +144,7 @@ sudo chmod 755 -R ~/Zeon_Master_setup
 sudo chmod 755 /usr/bin/zeon*
 
 # Deploy masternode monitoring script
-cp ~/Zeon_Masternode_Setup/nodemon.sh /usr/local/bin
+sudo cp ~/Zeon_Master_setup/nodemon.sh /usr/local/bin
 sudo chmod 711 /usr/local/bin/nodemon.sh
 
 #Create Zeon datadir
