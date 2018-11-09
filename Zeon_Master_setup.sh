@@ -108,13 +108,15 @@ echo -e "${NC}"
 rpcpassword=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 
 #Create 1GB swap file
+sudo  echo "export PATH=$PATH:/sbin" >> ~/.profile
+. ~/.profile
+
 
 if  [[ $(swapon -s | wc -l) -gt 1 ]] ; then
     echo -e "${GREEN}Skipping disk swap configuration...${NC} \n"
 else
     echo -e "${YELLOW}Creating 1GB disk swap file. \nThis may take a few minutes!${NC} \a"
-    sudo  echo "export PATH=$PATH:/sbin" >> ~/.profile
-    . ~/.profile
+   
     sudo fallocate -l 1G /swapfile
     sudo chmod 600 /swapfile
     sudo mkswap /swapfile
