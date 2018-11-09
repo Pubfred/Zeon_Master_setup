@@ -12,3 +12,6 @@ Script to automate Zeon Masternode install on a VPS with Ubuntu 16.04 or 18.04  
   bash Zeon_Master_setup.sh
   
   
+  
+ ZEON :  ZYFbfTSABh7hq2guBzSpkmiJGABX4NhLp9
+  
