@@ -56,7 +56,7 @@ clear
 echo -e "${YELLOW}Zeon Masternode Setup Script${NC}"
 echo -e "${GREEN}Updating system and installing required packages...${NC}"
 # sudo DEBIAN_FRONTEND=noninteractive apt-get -yq  update
-
+sudo apt-get update -y
 # sudo apt-get update -y
 # DEBIAN_FRONTEND=noninteractive
 
