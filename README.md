@@ -17,7 +17,9 @@ bash Zeon_Master_setup.sh  [Masternode_Private_Key]
 # Example 2: Script will generate a new genkey automatically
   bash Zeon_Master_setup.sh
   
+  ![Screenshot](Mas_setup_1.png)
   
+  ![Screenshot](Mas_setup_2.png)
   
  ZEON :  ZYFbfTSABh7hq2guBzSpkmiJGABX4NhLp9
   
