@@ -13,7 +13,7 @@ datadir="$HOME/.zeon$2"   # Default datadir is /root/.zeon
 # Install jq if it's not present
 dpkg -s jq 2>/dev/null >/dev/null || sudo apt-get -y install jq
 
-echo '\n\nPress Ctrl-C to Exit...'"
+echo '\n\nPress Ctrl-C to Exit...'
 
 
 #It is a one-liner script for now
