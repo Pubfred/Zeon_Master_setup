@@ -197,6 +197,7 @@ rpcallowip=127.0.0.1
 listen=1
 server=1
 daemon=1
+reindex=1
 maxconnections=64
 externalip=$public_ip
 masternode=1
