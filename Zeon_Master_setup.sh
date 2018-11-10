@@ -231,15 +231,15 @@ Masternode Private Key: ${YELLOW}$genkey${NC}
 Now you can add the following string to the masternode.conf file
 for your Hot Wallet (the wallet with your Zeon collateral funds):
 ======================================================================== \a"
-echo -e "${YELLOW}Alice $public_ip:$PORT $genkey TxId TxIdx${NC}"
+echo -e "${YELLOW}Alice $public_ip:$PORT $genkey txhash outputidx${NC}"
 echo -e "========================================================================
 
 Use your mouse to copy the whole string above into the clipboard by
 tripple-click + single-click (Dont use Ctrl-C) and then paste it 
 into your ${YELLOW}masternode.conf${NC} file and replace:
     ${YELLOW}Alice${NC} - with your desired masternode name (alias)
-    ${YELLOW}TxId${NC} - with Transaction Id from masternode outputs
-    ${YELLOW}TxIdx${NC} - with Transaction Index (0 or 1)
+    ${YELLOW}txhash${NC} - with Transaction Id from masternode outputs
+    ${YELLOW}outputidx${NC} - with Transaction Index (0 or 1)
      Remember to save the masternode.conf and restart the wallet!
 
 To introduce your new masternode to the Zeon network, you need to
