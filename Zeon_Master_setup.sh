@@ -231,13 +231,13 @@ Masternode Private Key: ${YELLOW}$genkey${NC}
 Now you can add the following string to the masternode.conf file
 for your Hot Wallet (the wallet with your Zeon collateral funds):
 ======================================================================== \a"
-echo -e "${YELLOW}mn1 $public_ip:$PORT $genkey TxId TxIdx${NC}"
+echo -e "${YELLOW}Alice $public_ip:$PORT $genkey TxId TxIdx${NC}"
 echo -e "========================================================================
 
 Use your mouse to copy the whole string above into the clipboard by
 tripple-click + single-click (Dont use Ctrl-C) and then paste it 
 into your ${YELLOW}masternode.conf${NC} file and replace:
-    ${YELLOW}mn1${NC} - with your desired masternode name (alias)
+    ${YELLOW}Alice${NC} - with your desired masternode name (alias)
     ${YELLOW}TxId${NC} - with Transaction Id from masternode outputs
     ${YELLOW}TxIdx${NC} - with Transaction Index (0 or 1)
      Remember to save the masternode.conf and restart the wallet!
@@ -260,8 +260,8 @@ Your initial Masternode Status may read:
 2) Wait at least until 'IsBlockchainSynced' status becomes 'true'.
 At this point you can go to your wallet and issue a start
 command by either using Debug Console:
-    Tools->Debug Console-> enter: ${YELLOW}masternode start-alias mn1${NC}
-    where ${YELLOW}mn1${NC} is the name of your masternode (alias)
+    Tools->Debug Console-> enter: ${YELLOW}startmasternode alias false Alice${NC}
+    where ${YELLOW}Alice${NC} is the name of your masternode (alias)
     as it was entered in the masternode.conf file
     
 or by using wallet GUI:
