@@ -146,6 +146,9 @@ sudo cp $PWD/Zeon_Master_setup/zeon_daemon_16/zeon* /usr/bin/
 elif  [[ `lsb_release -rs` == "18.04" ]] 
 then
 sudo cp $PWD/Zeon_Master_setup/zeon_daemon_18/zeon* /usr/bin/  
+elif  [[ `lsb_release -rs` == "18.10" ]] 
+then
+sudo cp $PWD/Zeon_Master_setup/zeon_daemon_18_10/zeon* /usr/bin/  
 fi
 sudo chmod 755 -R $PWD/Zeon_Master_setup
 sudo chmod 755 /usr/bin/zeon*
