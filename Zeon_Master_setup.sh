@@ -205,7 +205,8 @@ maxconnections=64
 externalip=$public_ip
 masternode=1
 masternodeprivkey=$genkey
-addnode=18.224.69.185
+addnode=dnsseed1.zeonhexalgo.fun
+addnode=dnsseed2.zeonhexalgo.fun
 addnode=45.77.137.85
 EOF
 
