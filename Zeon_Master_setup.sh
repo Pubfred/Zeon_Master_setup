@@ -60,7 +60,10 @@ sudo apt-get update -y
 
 # Determine primary public IP address
 dpkg -s dnsutils 2>/dev/null >/dev/null || sudo apt-get -y install dnsutils
-public_ip=$(dig +short myip.opendns.com @resolver1.opendns.com)
+# change to google 
+# public_ip=$(dig +short myip.opendns.com @resolver1.opendns.com)
+
+public_ip=$(dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com | awk -F'"' '{ print $2}')
 
 if [ -n "$public_ip" ]; then
     echo -e "${YELLOW}IP Address detected:" $public_ip ${NC}
