@@ -199,18 +199,16 @@ sudo tee <<EOF  $PWD/.zeon/zeon.conf  >/dev/null
 rpcuser=zeonrpc
 rpcpassword=$rpcpassword
 rpcallowip=127.0.0.1
-onlynet=ipv4
+rpcport=21944
 listen=1
 server=1
 daemon=1
-reindex=1
 maxconnections=64
 externalip=$public_ip
 masternode=1
 masternodeprivkey=$genkey
 addnode=dnsseed1.zeonhexalgo.fun
 addnode=dnsseed2.zeonhexalgo.fun
-addnode=45.77.137.85
 EOF
 
 #Finally, starting Zeon daemon with new zeon.conf
