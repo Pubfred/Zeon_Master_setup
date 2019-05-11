@@ -8,7 +8,7 @@ cd Zeon_Master_setup
 bash Zeon_Master_setup_ipv4.sh  [Masternode_Private_Key]
 
 
-  # Ipv4 :
+  # Ipv4 ...
     
 # Usage:
   bash Zeon_Master_setup_ipv4.sh  [Masternode_Private_Key]
