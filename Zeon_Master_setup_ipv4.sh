@@ -1,18 +1,18 @@
 #!/bin/bash
-# Zeon Masternode Setup Script V1.3 for Ubuntu 16.04 and 18.04 LTS
-# (c) 2018 by Pubfred zeonmymail(at)gmail.com  for Zeon 
+# Zeon Masternode Setup Script V1.3 for Ubuntu 16.04 ,18.04 and 18.10 LTS
+# (c) 2019 by Pubfred zeonmymail(at)gmail.com  for Zeon 
 #
-# Script will attempt to autodetect primary public IP address
+# Script will attempt to autodetect primary public IPV4 address
 # and generate masternode private key unless specified in command line
 #
 # Usage:
-# bash Zeon_Masternode_setup.sh [Masternode_Private_Key]
+# bash Zeon_Masternode_setup_ipv4.sh [Masternode_Private_Key]
 #
 # Example 1: Existing genkey created earlier is supplied
-# bash Zeon_Masternode_setup.sh 8qGKimjuDqF7aNAsMM8MVVKyhZuUPsuRSwh8fGGTneHpJaDdqoq
+# bash Zeon_Masternode_setup_ipv4.sh 8qGKimjuDqF7aNAsMM8MVVKyhZuUPsuRSwh8fGGTneHpJaDdqoq
 #
 # Example 2: Script will generate a new genkey automatically
-# bash Zeon_Masternode_setup.sh
+# bash Zeon_Masternode_setup_ipv4.sh
 #
 
 #Color codes
@@ -66,13 +66,13 @@ dpkg -s dnsutils 2>/dev/null >/dev/null || sudo apt-get -y install dnsutils
 public_ip=$(dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com | awk -F'"' '{ print $2}')
 
 if [ -n "$public_ip" ]; then
-    echo -e "${YELLOW}IP Address detected:" $public_ip ${NC}
+    echo -e "${YELLOW}IPV4 Address detected:" $public_ip ${NC}
 else
-    echo -e "${RED}ERROR:${YELLOW} Public IP Address was not detected!${NC} \a"
+    echo -e "${RED}ERROR:${YELLOW} Public IPV4 Address was not detected!${NC} \a"
     clear_stdin
-    read -e -p "Enter VPS Public IP Address: " public_ip
+    read -e -p "Enter VPS Public IPV4 Address: " public_ip
     if [ -z "$public_ip" ]; then
-        echo -e "${RED}ERROR:${YELLOW} Public IP Address must be provided. Try again...${NC} \a"
+        echo -e "${RED}ERROR:${YELLOW} Public IPV4 Address must be provided. Try again...${NC} \a"
         exit 1
     fi
 fi
