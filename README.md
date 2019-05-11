@@ -20,6 +20,16 @@ bash Zeon_Master_setup_ipv4.sh  [Masternode_Private_Key]
   bash Zeon_Master_setup_ipv4.sh
   
 
+  # Ipv6 ...
+    
+# Usage:
+  bash Zeon_Master_setup_ipv6.sh  [Masternode_Private_Key]
+
+# Example 1: Existing genkey created earlier is supplied
+  bash Zeon_Master_setup_ipv6.sh  8qGKimjuDqF7aNAsMM8MVVKyhZuUPsuRSwh8fGGTneHpJaDdqoq
+
+# Example 2: Script will generate a new genkey automatically
+  bash Zeon_Master_setup_ipv6.sh
   
 <a href="https://www.vultr.com/?ref=7587756"><img src="https://www.vultr.com/media/banner_2.png" width="468" height="60"></a>
 
