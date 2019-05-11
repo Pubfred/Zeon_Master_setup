@@ -5,17 +5,19 @@ git clone https://github.com/Pubfred/Zeon_Master_setup.git
 
 cd Zeon_Master_setup
 
-bash Zeon_Master_setup.sh  [Masternode_Private_Key]
+bash Zeon_Master_setup_ipv4.sh  [Masternode_Private_Key]
 
 
+  # Ipv4 :
+    
 # Usage:
-  bash Zeon_Master_setup.sh  [Masternode_Private_Key]
+  bash Zeon_Master_setup_ipv4.sh  [Masternode_Private_Key]
 
 # Example 1: Existing genkey created earlier is supplied
-  bash Zeon_Master_setup.sh  8qGKimjuDqF7aNAsMM8MVVKyhZuUPsuRSwh8fGGTneHpJaDdqoq
+  bash Zeon_Master_setup_ipv4.sh  8qGKimjuDqF7aNAsMM8MVVKyhZuUPsuRSwh8fGGTneHpJaDdqoq
 
 # Example 2: Script will generate a new genkey automatically
-  bash Zeon_Master_setup.sh
+  bash Zeon_Master_setup_ipv4.sh
   
 
   
