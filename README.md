@@ -5,7 +5,7 @@ git clone https://github.com/Pubfred/Zeon_Master_setup.git
 
 cd Zeon_Master_setup
 
-bash Zeon_Master_setup_ipv4.sh  [Masternode_Private_Key]
+
 
 
   # Ipv4 ...
