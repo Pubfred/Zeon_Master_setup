@@ -57,7 +57,7 @@ read -p "Continue to bash Zeon_Master_setup_ipv6.sh  (y/n)?  " CONT
       # Start a new install 
       ./Zeon_Master_setup_ipv6.sh;
    else
-      exit 1;
+      exit 0;
    fi
 
 
