@@ -32,7 +32,7 @@ export MNIP
 
 
 # Install Netplan file 
-if [[ 'lsb_release -rs' >  "17.04" ]]; then 
+if [[ $(lsb_release -rs) > "17.04" ]]; then
      if [ ! -f /etc/netplan/50-cloud-init.yaml ]; then 
 sudo tee <<EOF  /etc/netplan/50-cloud-init.yaml  >/dev/null
 network:
@@ -53,7 +53,7 @@ sudo netplan apply
 fi
 
 # Install Netplan file 
-if [[ 'lsb_release -rs' <  "17.04" ]]; then 
+if [[ $(lsb_release -rs) < "17.04" ]]; then
     echo -e "${RED}Please Upgrade Ubuntu version to newier version \n  ${NC}"
     read -p " Upgrade Ubuntu version  (y/n)?  " CONT
    if [ "$CONT" = "y" ]; then
