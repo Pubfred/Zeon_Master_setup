@@ -42,6 +42,8 @@ network:
         - '$MNIP/64'
 EOF
 
+sudo netplan apply --debug
+
 
 echo -e "${GREEN}This IPV6 Address will be use for next Masternode install :\n" $MNIP ${NC}
 read -p "Continue to bash Zeon_Master_setup_ipv6.sh  (y/n)?  " CONT
