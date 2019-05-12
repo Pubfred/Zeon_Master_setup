@@ -57,7 +57,7 @@ echo -e "${GREEN}This IPV6 Address will be use for next Masternode install :\n" 
 read -p "Continue to bash Zeon_Master_setup_ipv6.sh  (y/n)?  " CONT
    if [ "$CONT" = "y" ]; then
       # Start a new install 
-      ./Zeon_Master_setup_ipv6.sh;
+      bash Zeon_Master_setup_ipv6.sh;
    else
       exit 0;
    fi
