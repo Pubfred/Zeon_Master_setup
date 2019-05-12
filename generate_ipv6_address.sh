@@ -29,8 +29,8 @@ MNIP=$IP:$a:$b:$c:$d
 ip -6 addr add $MNIP/64 dev $(ip addr show | awk '/inet.*brd/{print $NF}')
 # Export address for use in next script 
 export MNIP
+echo -e "${GREEN}This IPV6 Address will be use for next Masternode install :\n" $MNIP ${NC}
 
-echo $MNIP
 
 
 
