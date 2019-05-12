@@ -17,7 +17,7 @@ a=${array[$RANDOM%16]}${array[$RANDOM%16]}${array[$RANDOM%16]}${array[$RANDOM%16
 b=${array[$RANDOM%16]}${array[$RANDOM%16]}${array[$RANDOM%16]}${array[$RANDOM%16]}
 c=${array[$RANDOM%16]}${array[$RANDOM%16]}${array[$RANDOM%16]}${array[$RANDOM%16]}
 d=${array[$RANDOM%16]}${array[$RANDOM%16]}${array[$RANDOM%16]}${array[$RANDOM%16]}
-# Geenerate a random IPv6 in address range  
+# Generate a random IPv6 in address range  
 MNIP=$IP:$a:$b:$c:$d
 # Add address to Interface 
 ip -6 addr add $MNIP/64 dev $(ip addr show | awk '/inet.*brd/{print $NF}')
