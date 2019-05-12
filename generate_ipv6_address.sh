@@ -30,6 +30,8 @@ ip -6 addr add $MNIP/64 dev $(ip addr show | awk '/inet.*brd/{print $NF}')
 # Export address for use in next script 
 export MNIP
 
+
+# Install Netplan file 
 if [[ 'lsb_release -rs' >  "16.04" ]]; then 
      if [ ! -f /etc/netplan/50-cloud-init.yaml ]; then 
 sudo tee <<EOF  /etc/netplan/50-cloud-init.yaml  >/dev/null
@@ -43,10 +45,10 @@ network:
         - '$MNIP/64'
 EOF
 
-sudo netplan apply --debug
+sudo netplan apply 
      else 
         echo "        - '$MNIP/64'" >> /etc/netplan/50-cloud-init.yaml
-        sudo netplan apply --debug
+        sudo netplan apply 
      fi
 fi
 
