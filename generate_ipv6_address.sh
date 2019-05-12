@@ -59,9 +59,9 @@ if [[ $(lsb_release -rs) < "17.04" ]]; then
    if [ "$CONT" = "y" ]; then
       # Start a new install 
        sudo do-release-upgrade
-       exit 0;
+       exit 1;
    else
-      exit 0;
+       exit 0;
    fi
 fi
 
