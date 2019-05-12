@@ -52,6 +52,11 @@ sudo netplan apply
      fi
 fi
 
+# Install Netplan file 
+if [[ 'lsb_release -rs' <  "17.04" ]]; then 
+    echo -e "${GREEN}Please Upgrade Ubuntu version to newier version \n "  ${NC}
+fi
+
 
 echo -e "${GREEN}This IPV6 Address will be use for next Masternode install :\n" $MNIP ${NC}
 read -p "Continue to bash Zeon_Master_setup_ipv6.sh  (y/n)?  " CONT
