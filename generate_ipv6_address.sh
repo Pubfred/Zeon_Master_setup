@@ -24,5 +24,7 @@ ip -6 addr add $MNIP/64 dev $(ip addr show | awk '/inet.*brd/{print $NF}')
 # Export address for use in next script 
 export MNIP
 
+echo $MNIP
+
 
 
