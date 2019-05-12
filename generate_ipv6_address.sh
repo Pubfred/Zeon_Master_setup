@@ -32,7 +32,7 @@ export MNIP
 
 
 # Install Netplan file 
-if [[ 'lsb_release -rs' >  "16.04" ]]; then 
+if [[ 'lsb_release -rs' >  "17.04" ]]; then 
      if [ ! -f /etc/netplan/50-cloud-init.yaml ]; then 
 sudo tee <<EOF  /etc/netplan/50-cloud-init.yaml  >/dev/null
 network:
