@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 # Zeon Masternode generate ipv6 address  V1.1 for Ubuntu 16.04 ,18.04 and 18.10 LTS
 # (c) 2019 by Pubfred zeonmymail(at)gmail.com  for Zeon 
 #
