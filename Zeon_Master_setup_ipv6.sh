@@ -68,6 +68,17 @@ public_ip=$(dig -6 TXT +short o-o.myaddr.l.google.com @ns1.google.com | awk -F'"
 if [ -n "$public_ip" ]; then
     public_ip=$'['$public_ip$']'
     echo -e "${YELLOW}IPV6 Address detected:" $public_ip ${NC}
+    rpcport=21945
+     if [ -n "$MNIP" ]; then
+         public_ip=$'['$MNIP$']'
+         echo -e "${GREEN}IPV6 Address use :" $public_ip ${NC}
+	 read -e -p "Enter Rpcport to use (other than 21944 and 21945 : " rpcport
+             if [ -z "$rpcport" ]; then
+             echo -e "${RED}ERROR:${YELLOW} rpcport must be provided. Try again...${NC} \a"
+             exit 1
+             fi
+     fi
+    
 else
     echo -e "${RED}ERROR:${YELLOW} Public IPV6 Address was not detected!${NC} \a"
     clear_stdin
@@ -200,7 +211,7 @@ sudo tee <<EOF  $PWD/.zeon/zeon.conf  >/dev/null
 rpcuser=zeonrpc
 rpcpassword=$rpcpassword
 rpcallowip=127.0.0.1
-rpcport=21945
+rpcport=$rpcport
 listen=0
 server=1
 daemon=1
