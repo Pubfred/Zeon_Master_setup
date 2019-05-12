@@ -9,6 +9,12 @@
 # bash generate_ipv6_address.sh
 #
 
+#Color codes
+RED='\033[0;91m'
+GREEN='\033[1;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
 
 # Get IPv6 from Hostname and take the 4 first 
 IP=$(hostname -I | cut -f2 -d' '| cut -f1-4 -d:)
