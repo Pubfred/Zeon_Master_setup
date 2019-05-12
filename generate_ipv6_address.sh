@@ -31,6 +31,8 @@ ip -6 addr add $MNIP/64 dev $(ip addr show | awk '/inet.*brd/{print $NF}')
 export MNIP
 echo -e "${GREEN}This IPV6 Address will be use for next Masternode install :\n" $MNIP ${NC}
 
+if [[ 'lsb_release -rs' >  "16.04" ]]; then 
+     if [ ! -f /etc/netplan/50-cloud-init.yaml ]; then 
 sudo tee <<EOF  /etc/netplan/50-cloud-init.yaml  >/dev/null
 network:
   version: 2
@@ -43,6 +45,11 @@ network:
 EOF
 
 sudo netplan apply --debug
+     else 
+        echo "        - '$MNIP/64'" >> /etc/netplan/50-cloud-init.yaml
+        sudo netplan apply --debug
+     fi
+fi
 
 
 echo -e "${GREEN}This IPV6 Address will be use for next Masternode install :\n" $MNIP ${NC}
