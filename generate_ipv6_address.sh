@@ -30,7 +30,28 @@ ip -6 addr add $MNIP/64 dev $(ip addr show | awk '/inet.*brd/{print $NF}')
 # Export address for use in next script 
 export MNIP
 echo -e "${GREEN}This IPV6 Address will be use for next Masternode install :\n" $MNIP ${NC}
-# Start a new install 
-./Zeon_Master_setup_ipv6.sh
+
+sudo tee <<EOF  /etc/netplan/50-cloud-init.yaml  >/dev/null
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    $(ip addr show | awk '/inet.*brd/{print $NF}'):
+      dhcp4: yes
+      addresses:
+        - '$MNIP/64'
+EOF
+
+
+echo -e "${GREEN}This IPV6 Address will be use for next Masternode install :\n" $MNIP ${NC}
+read -p "Continue to bash Zeon_Master_setup_ipv6.sh  (y/n)?  " CONT
+   if [ "$CONT" = "y" ]; then
+      # Start a new install 
+      ./Zeon_Master_setup_ipv6.sh;
+   else
+      exit 1;
+   fi
+
+
 
 
