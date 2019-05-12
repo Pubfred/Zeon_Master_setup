@@ -72,7 +72,7 @@ if [ -n "$public_ip" ]; then
      if [ -n "$MNIP" ]; then
          public_ip=$'['$MNIP$']'
          echo -e "${GREEN}IPV6 Address use :" $public_ip ${NC}
-	 read -e -p "Enter Rpcport to use (other than 21944 and 21945 : " rpcport
+	 read -e -p "${RED}Enter Rpcport to use (other than 21944 and 21945 : ${NC}" rpcport
              if [ -z "$rpcport" ]; then
              echo -e "${RED}ERROR:${YELLOW} rpcport must be provided. Try again...${NC} \a"
              exit 1
