@@ -39,7 +39,7 @@ network:
   version: 2
   renderer: networkd
   ethernets:
-    $(ip addr show | awk '/inet.*brd/{print $NF}'):
+    $(netstat -i | grep '^[a-z]' | awk '{print $1}' | grep -v 'lo'):
       dhcp4: yes
       addresses:
       - $MNIP/64
@@ -56,7 +56,7 @@ network:
   version: 2
   renderer: networkd
   ethernets:
-    $(ip addr show | awk '/inet.*brd/{print $NF}'):
+    $(netstat -i | grep '^[a-z]' | awk '{print $1}' | grep -v 'lo'):
       dhcp4: yes
       addresses:
       - $MNIP/64
