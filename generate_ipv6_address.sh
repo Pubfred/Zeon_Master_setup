@@ -48,7 +48,7 @@ EOF
 sudo netplan apply 
      else 
          if [ -s "/etc/netplan/01-netcfg.yaml" ] ; then
-            echo "      - $MNIP/64" >> /etc/netplan/50-cloud-init.yaml
+            echo "      - $MNIP/64" >> /etc/netplan/01-netcfg.yaml
             sudo netplan apply 
          else
 sudo tee <<EOF  /etc/netplan/01-netcfg.yaml  >/dev/null
