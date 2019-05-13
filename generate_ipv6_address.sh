@@ -26,7 +26,7 @@ d=${array[$RANDOM%16]}${array[$RANDOM%16]}${array[$RANDOM%16]}${array[$RANDOM%16
 # Generate a random IPv6 in address range  
 MNIP=$IP:$a:$b:$c:$d
 # Add address to Interface 
-ip -6 addr add $MNIP/64 dev $(ip addr show | awk '/inet.*brd/{print $NF}')
+ip -6 addr add $MNIP/64 dev $(netstat -i | grep '^[a-z]' | awk '{print $1}' | grep -v 'lo')
 # Export address for use in next script 
 export MNIP
 
