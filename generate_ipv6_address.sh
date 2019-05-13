@@ -17,7 +17,7 @@ NC='\033[0m' # No Color
 
 
 # Get IPv6 from Hostname and take the 4 first 
-IP=$(hostname -I | cut -f2 -d' '| cut -f1-4 -d:)
+IP=$(dig -6 TXT +short o-o.myaddr.l.google.com @ns1.google.com | awk -F'"' '{ print $2}')
 array=( 1 2 3 4 5 6 7 8 9 0 a b c d e f )
 a=${array[$RANDOM%16]}${array[$RANDOM%16]}${array[$RANDOM%16]}${array[$RANDOM%16]}
 b=${array[$RANDOM%16]}${array[$RANDOM%16]}${array[$RANDOM%16]}${array[$RANDOM%16]}
