@@ -47,8 +47,11 @@ EOF
 
 sudo netplan apply 
      else 
-        echo "        - '$MNIP/64'" >> /etc/netplan/50-cloud-init.yaml
-        sudo netplan apply 
+       echo -e "${RED}After install add this line to /etc/netplan/50-cloud-init.yaml \n  ${NC}"
+       echo -e "${YELLOW} - $MNIP/64 \n  ${NC}"
+       echo -e "${GREEN} And issue this command : sudo netplan apply --debug \n  ${NC}"
+       # echo "        - '$MNIP/64'" >> /etc/netplan/50-cloud-init.yaml
+       # sudo netplan apply 
      fi
 fi
 
