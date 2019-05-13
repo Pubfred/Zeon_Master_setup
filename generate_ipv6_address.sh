@@ -42,7 +42,7 @@ network:
     $(ip addr show | awk '/inet.*brd/{print $NF}'):
       dhcp4: yes
       addresses:
-        - $MNIP/64
+      - $MNIP/64
 EOF
 
 sudo netplan apply 
