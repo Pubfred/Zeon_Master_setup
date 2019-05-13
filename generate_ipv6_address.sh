@@ -33,8 +33,8 @@ export MNIP
 
 # Install Netplan file 
 if [[ $(lsb_release -rs) > "17.04" ]]; then
-     if [ ! -f /etc/netplan/50-cloud-init.yaml ]; then 
-sudo tee <<EOF  /etc/netplan/50-cloud-init.yaml  >/dev/null
+     if [ ! -f /etc/netplan/01-netcfg.yaml ]; then 
+sudo tee <<EOF  /etc/netplan/01-netcfg.yaml  >/dev/null
 network:
   version: 2
   renderer: networkd
@@ -47,9 +47,27 @@ EOF
 
 sudo netplan apply 
      else 
-       echo -e "${RED}After install add this line to /etc/netplan/50-cloud-init.yaml \n  ${NC}"
-       echo -e "${YELLOW} - $MNIP/64 \n  ${NC}"
-       echo -e "${GREEN} And issue this command : sudo netplan apply --debug \n  ${NC}"
+         if [ -s "/etc/netplan/01-netcfg.yaml" ] ; then
+            echo "      - $MNIP/64" >> /etc/netplan/50-cloud-init.yaml
+            sudo netplan apply 
+         else
+sudo tee <<EOF  /etc/netplan/01-netcfg.yaml  >/dev/null
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    $(ip addr show | awk '/inet.*brd/{print $NF}'):
+      dhcp4: yes
+      addresses:
+      - $MNIP/64
+EOF
+
+sudo netplan apply
+         
+         fi
+       # echo -e "${RED}After install add this line to /etc/netplan/50-cloud-init.yaml \n  ${NC}"
+       # echo -e "${YELLOW} - $MNIP/64 \n  ${NC}"
+       # echo -e "${GREEN} And issue this command : sudo netplan apply --debug \n  ${NC}"
        # echo "        - '$MNIP/64'" >> /etc/netplan/50-cloud-init.yaml
        # sudo netplan apply 
      fi
