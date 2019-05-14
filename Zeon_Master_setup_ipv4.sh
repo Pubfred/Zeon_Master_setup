@@ -87,9 +87,13 @@ sudo apt-get -y install libboost-system-dev libboost-filesystem-dev libboost-chr
 sudo apt-get -y install libevent-dev
 
 sudo apt -y install software-properties-common
+
+if [[ $(lsb_release -rs) < "19.04" ]]; then
 sudo add-apt-repository ppa:bitcoin/bitcoin -y
 sudo apt-get -y update
 sudo apt-get -y install libdb4.8-dev libdb4.8++-dev
+fi
+
 
 sudo apt-get -y install libminiupnpc-dev
 
