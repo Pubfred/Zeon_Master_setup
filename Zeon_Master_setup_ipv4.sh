@@ -92,6 +92,9 @@ if [[ $(lsb_release -rs) < "19.04" ]]; then
 sudo add-apt-repository ppa:bitcoin/bitcoin -y
 sudo apt-get -y update
 sudo apt-get -y install libdb4.8-dev libdb4.8++-dev
+else
+sudo apt install libdb5.3-dev -y
+sudo apt install libdb5.3++-dev -y
 fi
 
 
