@@ -105,9 +105,9 @@ sudo add-apt-repository ppa:bitcoin/bitcoin -y
 sudo apt-get -y update
 sudo apt-get -y install libdb4.8-dev libdb4.8++-dev
 else
-sudo apt install libdb5.3-dev -y
-sudo apt install libdb5.3++-dev -y
-sudo apt-get install libssl1.0-dev  -y
+sudo apt install -y libdb5.3-dev 
+sudo apt install -y libdb5.3++-dev 
+sudo apt-get install -y libssl1.0.0 libssl-dev 
 fi
 
 
