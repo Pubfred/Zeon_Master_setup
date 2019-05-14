@@ -95,7 +95,8 @@ sudo apt-get -y install libdb4.8-dev libdb4.8++-dev
 else
 sudo apt install -y libdb5.3-dev 
 sudo apt install -y libdb5.3++-dev 
-sudo apt-get install -y libssl1.0.0 libssl-dev 
+wget http://ftp.nl.debian.org/debian/pool/main/o/openssl/libssl1.0.0_1.0.1t-1+deb8u8_amd64.deb
+sudo dpkg -i libssl1.0.0_1.0.1t-1+deb8u8_amd64.deb
 fi
 
 
