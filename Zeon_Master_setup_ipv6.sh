@@ -107,6 +107,7 @@ sudo apt-get -y install libdb4.8-dev libdb4.8++-dev
 else
 sudo apt install libdb5.3-dev -y
 sudo apt install libdb5.3++-dev -y
+sudo apt-get install libssl1.0-dev  -y
 fi
 
 
