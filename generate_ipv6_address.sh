@@ -18,6 +18,8 @@ NC='\033[0m' # No Color
 
 # Get IPv6 from Hostname and take the 4 first 
 IP=$(dig -6 TXT +short o-o.myaddr.l.google.com @ns1.google.com | awk -F'"' '{ print $2}'  | cut -f2 -d' '| cut -f1-4 -d:)
+
+if [ -n "$Ip" ]; then
 array=( 1 2 3 4 5 6 7 8 9 0 a b c d e f )
 a=${array[$RANDOM%16]}${array[$RANDOM%16]}${array[$RANDOM%16]}${array[$RANDOM%16]}
 b=${array[$RANDOM%16]}${array[$RANDOM%16]}${array[$RANDOM%16]}${array[$RANDOM%16]}
@@ -29,6 +31,12 @@ MNIP=$IP:$a:$b:$c:$d
 ip -6 addr add $MNIP/64 dev $(netstat -i | grep '^[a-z]' | awk '{print $1}' | grep -v 'lo')
 # Export address for use in next script 
 export MNIP
+
+else
+    echo -e "${RED}ERROR:${YELLOW} Public IPV6 Address was not detected!${NC} \a"
+    exit 1 ; 
+fi
+
 
 
 # Install Netplan file 
