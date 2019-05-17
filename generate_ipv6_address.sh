@@ -34,6 +34,7 @@ export MNIP
 
 else
     echo -e "${RED}ERROR:${YELLOW} Public IPV6 Address was not detected!${NC} \a"
+    echo -e "${YELLOW}  Problem  with VPS IPV6 ... see VPS documentation ${NC} \a"
     exit 1 ; 
 fi
 
