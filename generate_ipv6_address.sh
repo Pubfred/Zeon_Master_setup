@@ -48,7 +48,7 @@ network:
   version: 2
   renderer: networkd
   ethernets:
-    $(netstat -i | grep '^[a-z]' | awk '{print $1}' | grep -v 'lo'):
+    $(netstat -i | grep '^[a-z]' | awk '{print $1}' | grep -v 'lo'  | head -1 ):
       dhcp4: yes
       addresses:
       - $MNIP/64
