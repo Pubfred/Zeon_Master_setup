@@ -31,5 +31,10 @@ MNIP=$IP:$a:$b:$c:$d
 ip -6 addr add $MNIP/64 dev $(netstat -i | grep '^[a-z]' | awk '{print $1}' | grep -v 'lo'  | head -1 )
 
 echo -e "${GREEN}This IPV6 Address will be use for next Masternode install :\n $MNIP ${NC}"
+else
+    echo -e "${RED}ERROR:${YELLOW} Public IPV6 Address was not detected!${NC} \a"
+    echo -e "${YELLOW}  Problem  with VPS IPV6 ... see VPS documentation ${NC} \a"
+    exit 1 ; 
+fi
 
 exit 0;
